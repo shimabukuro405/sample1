@@ -1,0 +1,396 @@
+﻿@charset UTF-8;
+/* ================================================ */
+/*             共通               */
+/* ================================================ */
+body {
+/*	width: 100%;*/
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333; 
+	background-color:#fff;
+	font-family:  YuGothic,'Yu Gothic', Osaka, sans-serif, Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+}
+
+/* ================================================ */
+/*main visual*/
+/* ================================================ */
+
+/*PCは全セクションそのままです*/
+
+/*=============================
+PC : 画面の横幅が769px以上
+===============================*/
+
+.main-image {
+	background-image :url(images/main-image.png);
+	height: 512px;
+	background-size: cover;
+	background-position: center;
+}
+
+.main-image h1 {
+	text-align: center;
+}
+
+.main-image h1 img {
+	margin-top: 100px;
+}
+
+/*ここからメディアクエリで各デバイスサイズに書き分けます
+CSSは上から下に継承されるので、変化させたいところだけ書けばOK*/
+
+/*==============================
+Tablet : 画面の横幅が768pxまで
+================================*/
+@media screen and (max-width: 768px){
+
+.main-image {
+	/*高さを512pxから400pxに*/
+	height: 400px;
+　　　
+}
+
+.main-image h1 img {
+/*	背景（main-image）が変わると中心がずれます。
+	なので、調整していきます。幅400px、上部外側余白を100pxから90pxに*/
+	width: 400px;
+	margin-top: 100px;
+
+}
+}
+
+/*==============================
+Smartphone :  画面の横幅が640pxまで
+===============================*/
+@media screen and (max-width:640px){
+
+.main-image {
+	/*高さを400pxから300pxに*/
+   height: 300px;
+
+}
+
+.main-image h1 img {
+	/*幅を400pxから280px、上部外側余白を90pxから80pxに*/
+	width: 280px;
+	margin-top: 80px;
+
+}
+}
+
+/* ================================================ */
+/*ディスクリプション部分*/
+/* ================================================ */
+
+/*=============================
+PC : 画面の横幅が769px以上
+===============================*/
+
+.content-wrapper {
+	margin: 0 auto;
+	width: 1000px;
+}
+
+.description {
+	height: 346px;
+	margin: 40px 0 0 0;
+	background-image :url(images/concept-bg.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+.description p {
+	padding-top: 130px;
+	line-height: 2;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*==============================
+Tablet : 画面の横幅が768pxまで
+================================*/
+@media screen and (max-width: 768px){
+
+/*幅を1000pxから100%に。ブラウザ幅いっぱいいっぱいに設定します*/
+.content-wrapper {
+	width: 100%;
+
+}
+
+.description {
+	/*縦幅346pxから400pxに*/
+	height: 400px;
+	/*背景画像のサイズをcontainにする*/
+	background-size: contain;
+}
+
+.description p {
+	/*上部内側余白を130pxから160pxに*/
+	padding-top: 130px;
+	/*背景画像に依存したデザインなので、文字サイズも調整していきます
+	文字を14pxに*/
+	font-size: 14px;
+}
+}
+
+/*==============================
+Smartphone :  画面の横幅が640pxまで
+===============================*/
+@media screen and (max-width:640px){
+
+.description {
+	/*縦幅300pxから100pxに*/
+	height: 100px;
+	/*背景画像がデバイスが小さくなると綺麗な見栄えにならないので、背景指定をなくす。
+	スマホ用の素材に切り替えるケースもある。*/
+	background-image: none;
+}
+
+.description p {
+	/*文字サイズ14pxから12pxに*/
+	font-size: 12px;
+	/*上部の内側余白を120pxから0に*/
+	padding-top: 0;
+}
+}
+
+/* ================================================ */
+/*テーマ部分*/
+/* ================================================ */
+
+/*=============================
+PC : 画面の横幅が769px以上
+===============================*/
+
+.theme {
+	margin: 100px 0;
+}
+
+.title {
+	display: block;
+	margin: 0 auto;
+}
+
+.theme-block {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
+.theme-block p {
+	padding: 24px 0 0 0;
+}
+
+.theme-block img{
+	padding-right: 24px;
+}
+
+.theme-item-btn {
+	margin-top: 64px;
+	float: right;
+}
+
+.theme-item-btn a {
+	display: block;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	width: 320px;
+	padding: 24px;
+	text-align: center;
+	border-radius: 8px;
+	background-color: #cc2e4c;
+	transition-property: all;
+	transition: 0.2s linear;
+}
+
+.theme-item-btn a:hover {
+	background-color: #9a233a;
+}
+
+/*==============================
+Tablet : 画面の横幅が768pxまで
+================================*/
+@media screen and (max-width: 768px){
+
+.theme {
+	/*上下の外側余白を40pxにし、.theme内のコンテンツを中央寄せに*/
+	margin: 40px 0;
+	text-align: center;
+}
+
+/*表示形式をflexではなく、通常のblockにする*/
+.theme-block {
+	display: block;
+}
+
+.theme-block p {
+	/*幅を80%の中央寄せにし、文章は左寄せに*/
+	width: 80%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.theme-block img{
+	/*画像に設定してあった余白を0にする*/
+	padding-right: 0;
+}
+
+.theme-item-btn {
+	/*上部の外側余白を24pxにし、floatの右寄せを解除*/
+	margin-top: 24px;
+	float: none;
+}
+
+.theme-item-btn a {
+	/*ボタンを中央寄せにする*/
+	margin: 0 auto;
+
+}
+}
+
+/*==============================
+Smartphone :  画面の横幅が640pxまで
+===============================*/
+@media screen and (max-width:640px){
+
+.theme {
+	/*上部外側余白を10px・下部外側余白を30pxに*/
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.title {
+	/*画像の幅を45%に*/
+	width: 45%;
+}
+
+.theme-block p {
+	/*文字サイズは14pxに*/
+	font-size: 14px;
+}
+
+.theme-block>div>img/*.theme-block直下のdivの直下のimg、という意味*/{
+	/*幅100%*/
+	width:100%;
+}
+
+.theme-item-btn a {
+	/*ボタン幅を250pxに*/
+	width: 250px;
+}
+}
+
+/* ================================================ */
+/*call to action section*/
+/* ================================================ */
+
+/*=============================
+PC : 画面の横幅が769px以上
+===============================*/
+
+.cta-section {
+	text-align: center;
+	height: 300px;
+	background-image :url(images/photo-bg.png);
+	background-size: cover;
+	background-position: center;
+}
+
+.cta-inner {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.cta-section h2 {
+	padding: 32px 0;
+}
+
+.cta-row {
+	display: flex;
+    -webkit-box-pack: space-between;
+    -ms-flex-pack: space-between;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.cta-btn a {
+	display: block;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	width: 190px;
+	padding: 24px;
+	text-align: center;
+	border-radius: 8px;
+	background-color: #cc2e4c;
+	position: relative;
+	box-shadow: 0 4px 0 #9a233a;
+}
+
+.cta-btn a:hover {
+	bottom: -4px;
+	box-shadow: none;
+}
+
+/*==============================
+Tablet : 画面の横幅が768pxまで
+================================*/
+@media screen and (max-width: 768px){
+
+.cta-section {
+	/*縦幅300pxから550pxに*/
+	height: 550px;
+	/*幅100%に*/
+	width: 100%;
+}
+
+.cta-inner {
+	/*幅80%の中央寄せに*/
+	width: 80%;
+	margin: 0 auto;
+}
+
+.cta-section h2 img {
+	/*画像が大きいので、横幅を90%に*/
+	width: 90%;
+}
+
+.cta-row {
+	/*表示形式をflexではなく、通常のblockにする*/
+	display: block;
+}
+
+.cta-btn a {
+	/*幅を320pxに*/
+	width: 320px;
+	/*要素を中央寄せにして、bottomは20pxあける*/
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+}
+
+/*==============================
+Smartphone :  画面の横幅が640pxまで
+===============================*/
+@media screen and (max-width:640px){
+
+.cta-btn a {
+	/*幅を250に*/
+	width: 250px;
+}
+}
+
+/* ================================================ */
+/*footer*/
+/* ================================================ */
+footer {
+	text-align: center;
+	font-size: 12px;
+	color: #999;
+	padding: 32px 0;
+}
